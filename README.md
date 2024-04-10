@@ -18,7 +18,7 @@ pytest, allure, webdriver
 
 для запуска всех автотестов с формированием актуальных отчетов:
 ```
-pytest header_page_test.py order_page_test.py home_page_test.py --alluredir=allure_results
+pytest test_api_create_order.py test_api_create_users.py test_api_list_orders.py test_api_login_courier.py --alluredir=allure_results
 ```
 
 открыть в браузере сформированные отчеты:
