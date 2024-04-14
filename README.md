@@ -7,6 +7,7 @@
 - [conftest](#conftest)
 - [tests](#tests)
 - [allure_results](#allure_results)
+- [variables](#variables)
 
 ### start
 
@@ -38,3 +39,7 @@ allure serve allure_results
 
 ### allure_results
 Тут лежат отчеты. 
+
+###  variables
+В этот файл вынесены данные, которые переиспользуются в разных тестах.
+Есть урлы для апи и текста проверок.

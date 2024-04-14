@@ -1,5 +1,4 @@
 import allure
-import requests
 import random
 import string
 
@@ -26,12 +25,3 @@ class Methods:
         }
 
         return payload
-
-    @allure.step('Удаляем курьера')
-    def delete_courier(self, login, password):
-        response_post = requests.post('https://qa-scooter.praktikum-services.ru/api/v1/courier/login', data={
-            "login": login,
-            "password": password,
-        })
-        courier_id = response_post.json()['id']
-        requests.delete(f'https://qa-scooter.praktikum-services.ru/api/v1/courier/:id{courier_id}')
