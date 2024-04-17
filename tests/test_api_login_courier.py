@@ -1,7 +1,8 @@
 import allure
 import requests
 
-from variables import Urls
+from methods import Methods
+from user_data import Urls
 
 
 class TestLoginCourier:
@@ -16,7 +17,8 @@ class TestLoginCourier:
         assert response.status_code == 200 and 'id' in response.text
 
     @allure.title('Проверка авторизации курьера без логина')
-    def test_without_login(self, methods):
+    def test_without_login(self,):
+        methods = Methods()
         req = methods.register_new_courier_and_return_login_password()
         requests.post(Urls.CREATE_COURIER, data=req)
         del req['firstName']
@@ -26,7 +28,8 @@ class TestLoginCourier:
         assert response.status_code == 400 and response.json()['message'] == "Недостаточно данных для входа"
 
     @allure.title('Проверка авторизации курьера без пароля')
-    def test_without_password(self, methods):
+    def test_without_password(self):
+        methods = Methods()
         req = methods.register_new_courier_and_return_login_password()
         requests.post(Urls.CREATE_COURIER, data=req)
         del req['firstName']
@@ -36,7 +39,8 @@ class TestLoginCourier:
         assert response.status_code == 400 and response.json()['message'] == "Недостаточно данных для входа"
 
     @allure.title('Проверка авторизации курьера без логина и пароля')
-    def test_without_data(self, methods):
+    def test_without_data(self):
+        methods = Methods()
         req = methods.register_new_courier_and_return_login_password()
         requests.post(Urls.CREATE_COURIER, data=req)
         del req['firstName']

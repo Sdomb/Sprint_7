@@ -2,16 +2,12 @@ import pytest
 import requests
 
 from methods import Methods
-from variables import Urls
+from user_data import Urls
 
 
 @pytest.fixture(scope='function')
-def methods():
-    return Methods()
-
-
-@pytest.fixture(scope='function')
-def create_courier(methods):
+def create_courier():
+    methods = Methods()
     data = methods.register_new_courier_and_return_login_password()
     yield data
     response_post = requests.post(Urls.LOGIN, data={"login": data['login'], "password": data['password']})

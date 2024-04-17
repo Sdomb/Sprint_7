@@ -1,7 +1,7 @@
 import allure
 import pytest
 import requests
-from variables import TextMessages, Urls
+from user_data import TextMessages, Urls
 
 
 class TestCreateOrder:
